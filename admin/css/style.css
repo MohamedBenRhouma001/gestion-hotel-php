@@ -1,0 +1,145 @@
+div#loginFormCss {
+    width: 501px;
+    margin: 0 auto;
+}  
+#email,#password,#btnlogin {
+    font-size: 15px;
+}
+.loginForm {
+    font-size: 15px;
+    padding-top: 111px;
+}
+#login-error ,#login-succ ,#loading_screen{
+    display: none;
+}
+.loading_img {
+    text-align: center;
+}
+.loading_img img {
+    width: 146px;
+}
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .navbar-nav .nav-item .nav-link {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-right: 20px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .navbar-nav .nav-item:last-child .nav-link {
+    margin-right: 0;
+  }
+  
+  .navbar-nav .nav-item .nav-link:hover {
+    color: #f8f9fa;
+  }
+  
+  .navbar-nav .nav-item .nav-link.active {
+    color: #f8f9fa;
+    border-bottom: 2px solid #f8f9fa;
+  }
+  
+  .navbar-nav.ms-auto .nav-item .nav-link {
+    margin-right: 0;
+  }
+  a.nav-link.text-white {
+    font-size: 17px;
+}
+a.navbar-brand.text-white {
+    font-size: 20px;
+    padding-top: 15px;
+} 
+.MainSection {
+    font-size: 15px;
+    width: 700px;
+    margin: 0 auto;
+}
+.input,.btn {
+    font-size: 15px;
+}
+span.notiv {
+    background-color: #8b4040;
+    padding: 4px 7px;
+    border-radius: 11px;
+    font-size: 12px;
+}
+body{
+  font-size: 15px;
+}
+.add_succ {
+  width: 419px;
+  background-color: #a5d9a8;
+  text-align: center;
+  border: 1px solid #378b3a;
+  border-radius: 9px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #378b3a;
+  padding: 8px;
+}
+.add_succ {
+  width: 419px;
+  background-color: #a5d9a8;
+  text-align: center;
+  border: 1px solid #378b3a;
+  border-radius: 9px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #378b3a;
+  padding: 8px;
+}
+.iconsT img {
+  width: 100px;
+}
+.add_Error {
+  width: 419px;
+  background-color: #e3989e;
+  text-align: center;
+  border: 1px solid #6a0c15;
+  border-radius: 9px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #95101c;
+  padding: 8px;
+}
+.topicsSection {
+  margin: 0 auto;
+  width: 700px;
+}
+.AddRoomResult {
+  width: max-content;
+  margin: 0 auto;
+}
+.msgmain {
+  width: 700px;
+  margin: 0 auto;
+}
+.msgFormC {
+  width: 700px;
+  margin: 0 auto;
+}
+.rounded-circle.sender-image {
+  text-align: center;
+}
+
+.rounded-circle.sender-image img {
+  width: 88px;
+  border-radius: 50px;
+}
+.msg-resive {
+  width: 700px;
+  margin: 0 auto;
+}
+tr#msgfcolor {
+  background-color: #9dbdeb;
+}
+.clientmain {
+  width: 700px;
+  margin: 0 auto;
+}
+

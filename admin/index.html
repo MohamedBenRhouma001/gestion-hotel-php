@@ -1,0 +1,339 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+
+
+        <style>
+          #correct , .settingmsgError , .client ,.msg-resive ,#id_userFormsg ,.msgFormC ,.messages ,.header ,.loginForm ,.MainSection ,.topicsSection ,.addroom ,.Setup1 ,.Setup2 ,.AddRoomResult ,.add_succ ,.add_Error{
+            display: none;
+          }
+        </style>
+    </head>
+<body>
+    <div class="header">
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand text-white" href="#">Berges du Lac</a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#" onclick="settingSection()">Promo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" onclick="topicSection()" href="#">Chambres</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#" onclick="openmessages()">Messages <span class="notiv">5</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#" onclick="openclient()">Clients</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link text-white" onclick="sessiondestroy()" href="#">Deconnexion</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+
+
+
+
+    <div class="MainSection" id="MainSection">
+  
+        <div class="settingmsgSucc">
+          <div class="alert alert-success alert-dismissible" id="correct">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> votre promotion a été mise à jour avec succès.
+          </div>
+        </div>
+        <div class="settingmsgError">
+          <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Error!</strong> Nous n avons pas pu telecharger vos parametres, reessayez plus tard.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="siteName">Code promo</label>
+          <input type="text" class="form-control input" id="code"  placeholder="Entrez votre code">
+        </div>
+        <div class="form-group">
+          <label for="siteImage">Prix_promo</label>
+          <input type="number" class="form-control input" id="price" min="0" placeholder="Entrez votre prix">
+        </div>
+        <div class="form-group">
+          <label for="siteEmail">Duration</label>
+          <input type="date" class="form-control input" id="duration" placeholder="Entrez votre dure" name="duration">
+        </div>
+        <button type="submit" class="btn btn-primary btn" onclick="upd_car_app()">Submit</button>
+
+    </div>
+   
+
+
+
+  
+    <div class="Client">
+      <div class="clientmain">
+        <!-- client List Table -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Client ID</th>
+              <th>Client Titre</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="showclientall">
+
+          </tbody>
+        </table>
+       </div>
+      </div>
+
+
+
+
+
+
+    <div class="messages">
+      <div class="msgmain">
+        <!-- Rooms List Table -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Message ID</th>
+              <th>Message Titre</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="showmsgall">
+
+          </tbody>
+        </table>
+       </div>
+
+       <div class="msg-resive">
+        <div class="alert alert-success">
+          <strong>Success!</strong> Votre message a été envoyé.
+        </div>
+       </div>
+
+
+       <div class="msgFormC">
+          <div class="row" id="reply_ms">
+            <div class="col-2">
+              <div class="rounded-circle sender-image">
+                <img src="" id="imageUser"/>
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="row">
+                <div class="col-12">
+                  <h5 class="font-weight-bold sender-name" id="msguser">John Doe</h5>
+                </div>
+                <div class="col-12">
+                  <p class="message-text" id="msgcontent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet, libero vel consequat volutpat, purus nisl tincidunt magna, a lacinia dolor ante id ante.</p>
+                </div>
+
+                <div class="replyadmin"></div>
+                
+                <div class="col-12">
+                  <div class="form-group">
+                    <input type="number" value="" id="id_userFormsg" />
+                    <textarea class="form-control" id="replyMsg" rows="3" placeholder="Tapez votre réponse ici..."></textarea>
+                  </div>
+                  <button class="btn btn-primary" onclick="SaveReply()">Envoyer</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+
+       </div>
+    </div>
+
+    <div class="topicsSection">
+         <div class="topicmain">
+          <button class="btn btn-success mt-3 mb-3" data-toggle="modal" data-target="#addRoomModal" onclick="StartMakingTopic()">Ajouter Chambre</button>
+
+          <!-- Rooms List Table -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Chambre ID</th>
+                <th>Nom Chambre</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="showtopicsall">
+
+            </tbody>
+          </table>
+         </div>
+
+
+         <div class="addroom">
+              <div class="Setup1">
+                <div>
+                  <div id="id-room-modi" style="display: none;"></div>
+                  <div>Etape 1 :</div>
+                  <div class="form-group">
+                    <label for="titleInput">Titre</label>
+                    <input type="text" id="roomtitle" class="form-control" id="titleInput" placeholder="Entrez titre">
+                  </div>
+                  <div class="form-group">
+                    <label for="descriptionTextarea">Description</label>
+                    <textarea  id="roomDescr" class="form-control" rows="3" placeholder="Entrez votre description"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="titleInput">maxnbr</label>
+                    <input type="number" id="maxnbr" min="0" class="form-control" placeholder="max nbr personne">
+                  </div>
+                  <div class="form-group">
+                    <label for="titleInput">quantite</label>
+                    <input type="number" id="quantite" min="0" class="form-control"placeholder="nbr Chambres">
+                  </div>
+                  <div class="form-group">
+                    <label for="titleInput">prix</label>
+                    <input type="number" id="price1253" min="0" class="form-control" placeholder="Prix chambre">
+                  </div>
+                  <button onclick="savetopicSetup1()" type="submit" id="btn"class="btn btn-primary">Envoyer</button>
+                  <button onclick="uptopicSetup1()" type="submit" id="btn1"class="btn btn-primary">Modifier</button>
+
+                </div>
+              
+              </div>
+              <div class="setup2">
+                <form>
+                  <h3>Etape 2:</h3>
+                  <div class="form-group">
+                    <label for="imageInput">Ajouter votre Images</label>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" id="imagelinkFFF" placeholder="Entrez image URL">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="addimage()" type="button">Ajouter</button>
+                      </div>
+                    </div>
+                    <div class="showResult">
+                      <div class="show_links">
+                         <ul id="showlistes">
+                         </ul>
+                      </div>
+                      <div class="showlistes-msg">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="tagsInput">Ajouter des Tags</label>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" id="tagsInput" placeholder="Entrez les tags séparées par des virgules">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" onclick="addtags()" type="button">Ajouter</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="showResult">
+                    <div class="show_links">
+                       <ul id="idtags">
+                          
+                       </ul>
+                    </div>
+                    <div class="idtags-msg">
+                    </div>
+                  </div>
+                  <button type="submit" onclick="save_fun_v1()" class="btn btn-primary">Enregistrer</button>
+                </form>
+                
+              </div>
+              <div class="AddRoomResult">
+                   <div class="add_succ">
+                        <div class="FormMesg">
+                              <div class="MesgT">La chambre a été ajoutée avec succès</div>
+                              <div class="iconsT"><img src="images/succ.png" ></div>
+                        </div>
+                   </div>
+                   <div class="add_Error">
+                    <div class="FormMesg">
+                      <div class="MesgT">reessayer plus tard!.. </div>
+                      <div class="iconsT"><img src="images/error.png" ></div>
+                </div>
+                   </div>
+              </div>
+         </div>
+
+         <div class="OpentopicSetting"></div>
+
+         <div class="topicmsgsection">
+               <div class="topic_msgSucc"></div>
+               <div class="topic_msgError"></div>
+         </div>
+    </div>
+
+
+    <div class="loginForm">
+
+      <div class="card" id="loginFormCss">
+        <div class="card-header">
+          connection
+        </div>
+        <div id="loading_screen">
+              <div class="loading_img">
+                <img src="images/loading.gif">
+              </div>
+
+              <div class="login-msg">
+                <div id="login-succ">
+                    <div class="alert alert-success" >
+                        <strong>Success!</strong>connecter avec succès! .
+                    </div>  
+                </div>
+                <div id="login-error">
+                    <div class="alert alert-warning">
+                        <strong>Échoué!</strong> Vous ne pouvez pas vous connecter, vérifiez vos informations et réessayez
+
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="card-body" id="login-s">
+      
+            <div class="form-group">
+              <label for="email">Adress email</label>
+              <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input type="password" class="form-control" id="password" placeholder="Mot de passe">
+            </div>
+            <button type="submit" onclick="checklogin()"  id="btnlogin"class="btn btn-primary btn-block">Connecter</button>
+          
+        </div>
+      </div>
+
+  
+   
+    </div>
+
+
+    <!--<script src="page.js"></script>-->
+    <script src="js/checksession.js"></script>
+    <script src="js/logincheck.js"></script>
+    <script src="js/pageswap.js"></script>
+    <script src="js/addtopic.js"></script>
+  
+
+  </body>
+</html>
